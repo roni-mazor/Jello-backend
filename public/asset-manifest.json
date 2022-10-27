@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8044a489.css",
+    "main.js": "/static/js/main.c61fee80.js",
+    "static/media/NotoSans-Medium.ttf": "/static/media/NotoSans-Medium.a4c42b7a92bf0fdb8ec1.ttf",
+    "static/media/FiraSans-SemiBold.ttf": "/static/media/FiraSans-SemiBold.9b44246405e74df4837c.ttf",
+    "static/media/FiraSans-Regular.ttf": "/static/media/FiraSans-Regular.f4eb295ecc2fb842d61c.ttf",
+    "static/media/Ubuntu-Regular.ttf": "/static/media/Ubuntu-Regular.1cbb1b79a23478cc89ad.ttf",
+    "static/media/boardExample.png": "/static/media/boardExample.5b7930dce030a3adf2c8.png",
+    "static/media/home-hero.png": "/static/media/home-hero.e8878a5487f1b4b94d6f.png",
+    "static/media/RobotoMono-Medium.ttf": "/static/media/RobotoMono-Medium.4a31449c446f644be364.ttf",
+    "static/media/left-loginsignup.svg": "/static/media/left-loginsignup.47238298680cf64177bdb1faa64d3804.svg",
+    "static/media/right-loginsignup.svg": "/static/media/right-loginsignup.3a2e83cef20d6bab2dbaf88d4a44819f.svg",
+    "static/media/pdf-icon.png": "/static/media/pdf-icon.d2b838964d5fa6275f38.png",
+    "static/media/board-preview.svg": "/static/media/board-preview.25c287ae7ad9fc2da090aeeddd284374.svg",
+    "static/media/guest-img.svg": "/static/media/guest-img.4a000e6c2f82b9781b22d2b01718e785.svg",
+    "static/media/jello-loader.svg": "/static/media/jello-loader.754a31b04df4558cd8e202cc845c4f3d.svg",
+    "index.html": "/index.html",
+    "main.8044a489.css.map": "/static/css/main.8044a489.css.map",
+    "main.c61fee80.js.map": "/static/js/main.c61fee80.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8044a489.css",
+    "static/js/main.c61fee80.js"
+  ]
+}
