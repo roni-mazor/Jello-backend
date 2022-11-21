@@ -12,18 +12,7 @@ function setupSocketAPI(http) {
         socket.on('disconnect', socket => {
             logger.info(`Socket disconnected [id: ${socket.id}]`)
         })
-        // socket.on('user-id-login', userId => {
-        //     socket.userId = userId
-        // })
-        // socket.on('chat-set-topic', topic => {
-        //     if (socket.myTopic === topic) return
-        //     if (socket.myTopic) {
-        //         socket.leave(socket.myTopic)
-        //         logger.info(`Socket is leaving topic ${socket.myTopic} [id: ${socket.id}]`)
-        //     }
-        //     socket.join(topic)
-        //     socket.myTopic = topic
-        // })
+
         socket.on('set-board-listening', boardId => {
             if (socket.boardId === boardId) return
             if (socket.boardId) {
@@ -34,37 +23,12 @@ function setupSocketAPI(http) {
             socket.join(boardId)
             socket.boardId = boardId
         })
-        // socket.on('chat-send-msg', async (msg) => {
-        //     logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
-        //     const toyId = socket.myTopic
-        //     // emits to all sockets:
-        //     // gIo.emit('chat addMsg', msg)
-        //     // emits only to sockets in the same room
-        //     await toyService.addMsg(toyId, msg)
-        //     gIo.to(socket.myTopic).emit('chat-add-msg', msg)
-        // })
-        // socket.on('self-is-typing', (userTypingStatus) => {
-        //     console.log('is someone typing?', userTypingStatus)
-        //     // logger.info(`New chat msg from socket [id: ${socket.id}], emitting to topic ${socket.myTopic}`)
 
-        //     gIo.to(socket.myTopic).emit('diff-user-typing', userTypingStatus)
-        // })
-        // socket.on('user-watch', userId => {
-        //     logger.info(`user-watch from socket [id: ${socket.id}], on user ${userId}`)
-        //     socket.join('watching:' + userId)
-
-        // })
         socket.on('set-user-socket', userId => {
-            // if (socket.userId) {
-            //     socket.leave(socket.userId)
-            //     logger.info(`Socket is leaving userId ${socket.userId} [id: ${socket.id}]`)
-            // }
-            // socket.userId = userId
             socket.join(userId)
 
             logger.info(`Setting socket.userId = ${userId} for socket [id: ${socket.id}]`)
             socket.userId = userId
-            console.log('socket.userId', socket.userId)
         })
         socket.on('user-task-assignment', (activityDetails) => {
             gIo.emit('user-assignment-notification', activityDetails)
@@ -91,15 +55,11 @@ async function emitToUser(type, data, userId) {
         socket.emit(type, data)
     } else {
         logger.info(`No active socket for user: ${userId}`)
-        // _printSockets()
     }
 }
 
-// If possible, send to all sockets BUT not the current socket 
-// Optionally, broadcast to a room / to all
 async function broadcast(type, data, room = null, userId) {
-    // console.log(data)
-    // userId = userId.toString()
+
     console.log(userId)
     logger.info(`Broadcasting event: ${type}`)
     const excludedSocket = await _getUserSocket(userId)
@@ -124,7 +84,6 @@ async function _getUserSocket(userId) {
     return socket
 }
 async function _getAllSockets() {
-    // return all Socket instances
     const sockets = await gIo.fetchSockets()
     return sockets
 }
@@ -139,7 +98,6 @@ function _printSocket(socket) {
 }
 
 module.exports = {
-    // set up the sockets service and define the API
     setupSocketAPI,
     // emit to everyone / everyone in a specific room (label)
     emitTo,
